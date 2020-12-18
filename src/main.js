@@ -44,6 +44,9 @@ Vue.use(decoration5)
 Vue.use(borderBox13)
 Vue.use(scrollBoard)
 
+// 解决样式被覆盖的问题
+import './assets/css/base.css'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

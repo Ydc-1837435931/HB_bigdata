@@ -128,8 +128,8 @@ export default {
       chart.on("mouseover", function(param) {
         isSet = false;
         clearInterval(_this.startCharts);
-        console.log("charPiecurrentIndex"+charPiecurrentIndex)        
-        console.log("dataIndex"+param.dataIndex)        
+        // console.log("charPiecurrentIndex"+charPiecurrentIndex)        
+        // console.log("dataIndex"+param.dataIndex)        
 
         //取消之前高亮图形
         chart.dispatchAction({
@@ -165,7 +165,7 @@ export default {
     
       //自动高亮显示
       var chartHover = function() {
-    console.log(charPiecurrentIndex) 
+    // console.log(charPiecurrentIndex) 
         var dataLen = option.series[0].data.length;
 
         // 取消之前高亮的图形
