@@ -7,7 +7,7 @@
     </div>
 
     <header class="w-100 h-10 flex j-center a-center">
-      <dv-decoration-5 :dur="10" style="position: absolute;bottom: 0;right: 0;" class="w-100 h-50" />
+      <dv-decoration-5 :dur="10" style="position: absolute;bottom: 0;right: 0;height: 50%;" class="w-100 " />
       <div class="font-big font-weight">环保设备监控云平台</div>
     </header>
     <div class="p w-100 h-90 flex">
