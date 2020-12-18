@@ -1,7 +1,7 @@
 <template>
 
   <div id="app" class="flex h-100 flex-wrap">
-        <!-- 加载动画 -->
+    <!-- 加载动画 -->
     <div class="loads" v-show="isload">
       <dv-loading style="width: 250px; height: 250px">Loading...</dv-loading>
     </div>
