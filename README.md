@@ -1,8 +1,15 @@
-# demo
+# 环保项目大数据看板
 
-> Demo
 
-## Build Setup
+>  **基于 vue+dataV+echarts编写的大数据看板** 
+
+效果图：
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1218/094754_c5763a47_8430317.jpeg "1608256046(1).jpg")
+
+饼图自动切换
+
+
+## 下载后操作步骤：
 
 ``` bash
 # install dependencies
