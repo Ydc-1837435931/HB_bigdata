@@ -8,7 +8,7 @@
 
     <header class="w-100 h-10 flex j-center a-center">
       <dv-decoration-5 :dur="10" style="position: absolute;bottom: 0;right: 0;height: 50%;" class="w-100 " />
-      <div class="font-big font-weight">环保设备监控云平台</div>
+      <div class="font-big font-weight">筹备期消防管理平台</div>
     </header>
     <div class="p w-100 h-90 flex">
       <div class="w-70 h-100  flex j-sb flex-wrap">
@@ -18,10 +18,8 @@
       </div>
       <right></right>
     </div>
-    
-    
   </div>
-</template> 
+</template>
 
 <script>
 export default {
@@ -58,14 +56,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-}	
+
+}
 
 header{
   background: url(assets/img/head_bg.png);
   background-size: 100% 100%;
   position: relative;
-
 }
 
 /* 媒体查询  */

@@ -8,12 +8,12 @@
 
     <div class="h-50 m-l m-r">
       <dv-border-box-13>
-        
+
         <div id="center" class="w-100 h-100 item">
           <div class="w-100 h-15 font-s font-weight">设备状态 <span class="font color-gray">（ 蓝色：运行中，黄色：异常 ）</span></div>
           <div id="list" class="parent h-85 w-100">
             <div id="child1" class="child comminChild flex flex-wrap j-sb">
-             
+
                 <div class="li_item h-100 p-b" v-for="(item , index) in list" :key="index" >
                   <img v-if="item.state == true" class="w-30 h-100" style="padding-right:10px;" src="@/assets/img/yunxing.png" alt />
                   <img v-else class="w-30 h-100" style="padding-right:10px;" src="@/assets/img/weixiu.png" alt />
@@ -23,7 +23,7 @@
                     <div >位置： <span>{{item.address}}</span></div>
                   </div>
                 </div>
-           
+
             </div>
             <div id="child2" class="child comminChild flex flex-wrap"></div>
           </div>
@@ -40,18 +40,18 @@ export default {
     return {
       list:[
         {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
+        {id:"011515",name:"湿度传感器",address:"一号楼16层1603",state:true},
         {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:false},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:false},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:false},
+        {id:"011515",name:"压力传感器",address:"一号楼16层1603",state:true},
         {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
         {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
         {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:false},
+        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:false},
         {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-  
+        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
+        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:false},
+        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
+
       ]
     };
   },

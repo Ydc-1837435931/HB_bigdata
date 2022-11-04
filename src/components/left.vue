@@ -3,7 +3,7 @@
     <div class="h-50 ">
       <dv-border-box-13>
         <div class="item h-100">
-          <div class="w-100 h-15 font-s font-weight">设备类型</div>
+          <div class="w-100 h-15 font-s font-weight">本年开业项目</div>
           <div class="w-100 h-85 biaoge_pai">
             <ul class="h-100">
               <li>
@@ -170,7 +170,7 @@ export default {
             name: "最低温度",
             type: "line",
             data: [12, 20, 2, 5, 3, 2, 0],
-            
+
             itemStyle: {
               normal: {
                 color: "#05D1FC",   //折现点颜色
