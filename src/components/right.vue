@@ -1,6 +1,6 @@
 <template>
-  <div class="w-30 h-100 right flex flex-column">
-    <div class="h-50 m-b">
+  <div class="w-40 h-100 right flex flex-column">
+    <div class="h-45 m-b">
       <dv-border-box-13>
         <div class="item w-100 h-100">
           <div class="w-100 h-10 font-weight font-s">设备状态信息</div>
@@ -8,29 +8,47 @@
         </div>
       </dv-border-box-13>
     </div>
-    <div class="h-50">
+
+    <div class="h-55">
       <dv-border-box-13>
         <div class="item w-100 h-100">
-          <div class="w-100 h-15 font-weight font-s">最新报警</div>
-          <dv-scroll-board :config="config" class="w-100 h-85" />
+          <div class="w-100 h-15">
+            <el-tabs v-model="activeName" @tab-click="handleClick">
+              <el-tab-pane label="兰州安宁" name="first" ></el-tab-pane>
+              <el-tab-pane label="安阳文峰" name="second"></el-tab-pane>
+              <el-tab-pane label="四平铁西" name="third"></el-tab-pane>
+              <el-tab-pane label="运城" name="fourth"></el-tab-pane>
+            </el-tabs>
+          </div>
+          <dv-scroll-board :config="config" class="w-100 h-70" />
+          <div class="w-100 h-15">
+            <el-tabs v-model="activeName" @tab-click="handleClickquyu">
+              <el-tab-pane label="西北区域" name="first"></el-tab-pane>
+              <el-tab-pane label="华中区域" name="second"></el-tab-pane>
+              <el-tab-pane label="东北区域" name="third"></el-tab-pane>
+              <el-tab-pane label="华北区域" name="fourth"></el-tab-pane>
+              <el-tab-pane label="华南区域" name="fifth"></el-tab-pane>
+            </el-tabs>
+          </div>
         </div>
       </dv-border-box-13>
     </div>
   </div>
+
 </template>
 
 <script>
 export default {
+
   name: "right",
   data() {
     return {
       config: {
         startCharts:"",
-        
         header: ["列1", "列2", "列3"],
         headerBGC: "#018DCE",
         evenRowBGC: "#000D4A",
-        rowNum: 7,
+        rowNum: 6,
         data: [
           ["行1列1", "行1列2", "行1列3"],
           ["行2列1", "行2列2", "行2列3"],
@@ -42,25 +60,23 @@ export default {
           ["行8列1", "行8列2", "行8列3"],
           ["行9列1", "行9列2", "行9列3"],
           ["行10列1", "行10列2", "行10列3"]
-        ]
-      }
+        ],
+        carousel: 'single',
+      },
+      activeName: 'second'
     };
   },
   mounted() {
     var _this = this;
     this.echart();
-
-
   },
   methods: {
-    
     echart() {
-     
-        var isSet = true; // 为了做判断：当鼠标移动上去的时候，自动高亮就被取消
+      var isSet = true; // 为了做判断：当鼠标移动上去的时候，自动高亮就被取消
       var _this = this;
       var charPiecurrentIndex = 0;
       var oldindex=0;
-      
+
       var chart = this.$echarts.init(document.getElementById("echart1"));
       var option = {
         tooltip: {
@@ -121,15 +137,15 @@ export default {
           }
         ]
       };
-     
+
       chart.setOption(option);
-   
+
       // 鼠标移动上去的时候的高亮动画
       chart.on("mouseover", function(param) {
         isSet = false;
         clearInterval(_this.startCharts);
-        // console.log("charPiecurrentIndex"+charPiecurrentIndex)        
-        // console.log("dataIndex"+param.dataIndex)        
+        // console.log("charPiecurrentIndex"+charPiecurrentIndex)
+        // console.log("dataIndex"+param.dataIndex)
 
         //取消之前高亮图形
         chart.dispatchAction({
@@ -153,7 +169,7 @@ export default {
       });
 
       chart.on("mouseout",function(param){
-        
+
       })
 
       //图标随窗口大小缩放
@@ -162,10 +178,10 @@ export default {
       });
 
 
-    
+
       //自动高亮显示
       var chartHover = function() {
-    // console.log(charPiecurrentIndex) 
+    // console.log(charPiecurrentIndex)
         var dataLen = option.series[0].data.length;
 
         // 取消之前高亮的图形
@@ -175,7 +191,7 @@ export default {
           dataIndex: charPiecurrentIndex
         });
         charPiecurrentIndex = (charPiecurrentIndex + 1) % dataLen;
-         
+
         // 高亮当前图形
         chart.dispatchAction({
           type: "highlight",
@@ -198,14 +214,31 @@ export default {
           isSet = true;
         }
       });
+    },
+    handleClick(name) {
+      console.log(name +"!!!!!");
+      this.$router.push('/project')
+    },
+    handleClickquyu(){
+      console.log("点击事件发生")
     }
   }
 };
 </script>
 
-
-<style scoped>
+<style >
 .item {
   padding: 0.33rem 0.2rem 0.2rem;
+}
+.el-tabs__item{
+  font-size: 20px !important;
+  color: #46b8da;
+  /*margin-left: -14px;*/
+  border-color: #1a5773;
+}
+.el-tabs__item:hover{
+  font-size: 25px !important;
+  color: #f0ad4e;
+  /*margin-left: -10px;*/
 }
 </style>

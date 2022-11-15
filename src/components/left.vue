@@ -1,79 +1,146 @@
 <template>
-  <div class="w-35 h-80 flex flex-column">
-    <div class="h-50 ">
-      <dv-border-box-13>
+  <div class="w-35 h-100 flex flex-column">
+    <div class="h-100">
+      <dv-border-box-13 >
+<!--        项目列表行间距-->
         <div class="item h-100">
-          <div class="w-100 h-15 font-s font-weight">本年开业项目</div>
-          <div class="w-100 h-85 biaoge_pai">
-            <ul class="h-100">
+          <div class="w-100 h-10 font-big font-weight text-center">本年开业项目</div>
+          <div class="w-100 h-90 biaoge_pai">
+            <ul class="h-40">
               <li>
                 <div class="liIn">
-                  <div class="liIn_left">
-                    <span class="bot"></span>
-                    <span class="zi">设备一</span>
+                  <div class="liIn_left w-50">
+                    <span class="zi">兰州安宁</span>
                   </div>
-                  <div class="liIn_line">
-                    <div class="line_lineIn" style="width:98.5%;"></div>
+                  <div class="liIn_line w-20">
+                    <div class="line_lineIn " style="width:90%;"></div>
                   </div>
-                  <p class="num">98.5%</p>
+                  <div class="text-right">
+                    <p class="num zi">11.18</p>
+                  </div>
                 </div>
               </li>
               <li>
-                <div class="liIn liIn2">
-                  <div class="liIn_left">
-                    <span class="bot"></span>
-                    <span class="zi">设备二</span>
+                <div class="liIn">
+                  <div class="liIn_left w-50">
+                    <span class="zi">安阳文峰</span>
                   </div>
-                  <div class="liIn_line">
-                    <div class="line_lineIn" style="width:88.5%;"></div>
+                  <div class="liIn_line w-20">
+                    <div class="line_lineIn" style="width:85%;"></div>
                   </div>
-                  <p class="num">88.5%</p>
+                  <div class="text-right">
+                    <p class="num zi">11.28</p>
+                  </div>
                 </div>
               </li>
               <li>
-                <div class="liIn liIn3">
-                  <div class="liIn_left">
-                    <span class="bot"></span>
-                    <span class="zi">设备三</span>
+                <div class="liIn">
+                  <div class="liIn_left w-50">
+                    <span class="zi">四平铁西</span>
                   </div>
-                  <div class="liIn_line">
-                    <div class="line_lineIn" style="width:68.5%;"></div>
+                  <div class="liIn_line w-20">
+                    <div class="line_lineIn " style="width:70%;"></div>
                   </div>
-                  <p class="num">68.5%</p>
+                  <div class="text-right">
+                   <p class="num zi">11.26</p>
+                  </div>
                 </div>
               </li>
               <li>
-                <div class="liIn liIn4">
-                  <div class="liIn_left">
-                    <span class="bot"></span>
-                    <span class="zi">设备四</span>
+                <div class="liIn">
+                  <div class="liIn_left w-50">
+                    <span class="zi">运城吾悦</span>
                   </div>
-                  <div class="liIn_line">
-                    <div class="line_lineIn" style="width:40.5%;"></div>
+                  <div class="liIn_line w-20">
+                    <div class="line_lineIn " style="width:65%;"></div>
                   </div>
-                  <p class="num">40.5%</p>
+                  <div class="text-right">
+                    <p class="num zi">12.16</p>
+                  </div>
                 </div>
               </li>
               <li>
-                <div class="liIn liIn6">
-                  <div class="liIn_left">
-                    <span class="bot"></span>
-                    <span class="zi">设备五</span>
+                <div class="liIn">
+                  <div class="liIn_left w-50">
+                    <span class="zi">重庆铜梁</span>
                   </div>
-                  <div class="liIn_line">
-                    <div class="line_lineIn" style="width:10.5%;"></div>
+                  <div class="liIn_line w-20">
+                    <div class="line_lineIn " style="width:50%;"></div>
                   </div>
-                  <p class="num">10.5%</p>
+                  <div class="text-right">
+                    <p class="num zi">12.16</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="liIn">
+                  <div class="liIn_left w-50">
+                    <span class="zi">石家庄长安</span>
+                  </div>
+                  <div class="liIn_line w-20">
+                    <div class="line_lineIn " style="width:40%;"></div>
+                  </div>
+                  <div class="text-right">
+                    <p class="num zi">12.23</p>
+                  </div>
+                </div>
+              </li>
+              <dv-decoration-2 style="width:360px;height:10px;" class="p-b"/>
+              <li>
+                <div class="liIn">
+                  <div class="liIn_left w-50">
+                    <span class="zi">鄂州</span>
+                  </div>
+                  <div class="liIn_line w-20">
+                    <div class="line_lineIn " style="width:100%;"></div>
+                  </div>
+                  <div class="text-right">
+                    <p class="num zi">10.28</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="liIn">
+                  <div class="liIn_left w-50">
+                    <span class="zi">滨州滨城</span>
+                  </div>
+                  <div class="liIn_line w-20">
+                    <div class="line_lineIn " style="width:100%;"></div>
+                  </div>
+                  <div class="text-right">
+                    <p class="num zi">10.22</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="liIn">
+                  <div class="liIn_left w-50">
+                    <span class="zi">大同云冈</span>
+                  </div>
+                  <div class="liIn_line w-20">
+                    <div class="line_lineIn " style="width:100%;"></div>
+                  </div>
+                  <div class="text-right">
+                    <p class="num zi">9.28</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="liIn">
+                  <div class="liIn_left w-50">
+                    <span class="zi">南昌进贤</span>
+                  </div>
+                  <div class="liIn_line w-20">
+                    <div class="line_lineIn " style="width:100%;"></div>
+                  </div>
+                  <div class="text-right">
+                    <p class="num zi">9.23</p>
+                  </div>
                 </div>
               </li>
             </ul>
           </div>
         </div>
-      </dv-border-box-13>
-    </div>
-    <div class="h-50 ">
-      <dv-border-box-13>
-        <div class="w-100 h-100 p-tb" id="lineEchart"></div>
       </dv-border-box-13>
     </div>
   </div>
@@ -86,129 +153,10 @@ export default {
     return {};
   },
   mounted() {
-    this.lineEchart();
+
   },
   methods: {
-    lineEchart() {
-      var lineEchart = this.$echarts.init(
-        document.getElementById("lineEchart")
-      );
-      var option = {
-        title: {
-          text: "温度传感器采集信息",
-          left: "20",
-          textStyle: {
-            color: "#ffffff"
-          }
-        },
-        grid: {
-          bottom: "10",
-          containLabel: true
-        },
-        tooltip: {
-          trigger: "axis"
-        },
-        legend: {
-          right: "15",
-          textStyle: {
-            color: "#ffffff"
-          },
-        },
-        xAxis: {
-          type: "category",
-          boundaryGap: false,
-          nameTextStyle: {
-            color: "#ffffff"
-          },
-          axisLine: {
-            show: true,
 
-            lineStyle: {
-              color: "#fff"
-            }
-          },
-          axisLabel: {
-            textStyle: {
-              color: "#fff",
-              fontSize: 12
-            }
-          },
-          data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
-        },
-        yAxis: {
-          type: "value",
-          axisLine: {
-            show: true,
-            symbol: ["none", "arrow"],
-            symbolOffset: 12,
-            lineStyle: {
-              color: "#fff"
-            }
-          },
-          axisLabel: {
-            formatter: "{value} °C",
-            textStyle: {
-              color: "#fff",
-              fontSize: 12
-            }
-          }
-        },
-        series: [
-          {
-            name: "最高温度",
-            type: "line",
-            data: [11, 11, 15, 13, 12, 13, 10],
-
-            markPoint: {
-              data: [
-                { type: "max", name: "最大值", symbolSize: 40 },
-                { type: "min", name: "最小值", symbolSize: 40 }
-              ]
-            }
-          },
-          {
-            name: "最低温度",
-            type: "line",
-            data: [12, 20, 2, 5, 3, 2, 0],
-
-            itemStyle: {
-              normal: {
-                color: "#05D1FC",   //折现点颜色
-                lineStyle: {
-                  color: "#05D1FC"  //折现颜色
-                }
-              }
-            },
-            markPoint: {
-              data: [
-                {
-                  type: "max",
-                  name: "最大值",
-                  symbolSize: 40,
-                  itemStyle: {
-                    color: "#05D1FC"  //标记颜色
-                  }
-                },
-                {
-                  type: "min",
-                  name: "最小值",
-                  symbolSize: 40,
-                  itemStyle: {
-                    color: "#05D1FC"//标记颜色
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      };
-
-      lineEchart.setOption(option);
-      //图标随窗口大小缩放
-      window.addEventListener("resize", function() {
-        lineEchart.resize();
-      });
-    }
   }
 };
 </script>
@@ -218,7 +166,9 @@ export default {
 .item {
   padding: 0.33rem 0.4rem 0.2rem;
 }
-
+.zi{
+  font-size: 25px;
+}
 /*左边中间部分排行榜*/
 .biaoge_pai {
   overflow: hidden;
@@ -232,16 +182,13 @@ export default {
   align-items: center;
   color: #fff;
   font-size: 0.06rem;
-  height: 0.6rem;
 }
 .biaoge_pai ul li .liIn .liIn_left {
-  width: 25%;
   position: relative;
   padding-left: 0.3rem;
 }
 .biaoge_pai ul li .liIn .liIn_left .bot {
   width: 0.2rem;
-  height: 0.2rem;
   background: #91cc75;
   border-radius: 1000px;
   display: block;
@@ -268,13 +215,12 @@ export default {
 }
 
 .biaoge_pai ul li .liIn .liIn_line {
-  width: 58%;
+  width: 40%;
   height: 0.2rem;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 2000px;
 }
 .biaoge_pai ul li .liIn .liIn_line .line_lineIn {
-  width: 100%;
   height: 0.2rem;
   background: #91cc75;
   border-radius: 100px;

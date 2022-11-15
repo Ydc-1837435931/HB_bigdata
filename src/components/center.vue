@@ -1,59 +1,58 @@
 <template>
-  <div class="w-65 h-80 flex flex-column">
-    <div class="h-50 m-l m-r">
+  <div class="w-65 h-100 flex flex-column">
+    <div class="h-40 m-l m-r">
       <dv-border-box-13>
         <div class="w-100 h-100 p-tb" id="echart"></div>
       </dv-border-box-13>
     </div>
 
-    <div class="h-50 m-l m-r">
-      <dv-border-box-13>
-
-        <div id="center" class="w-100 h-100 item">
-          <div class="w-100 h-15 font-s font-weight">设备状态 <span class="font color-gray">（ 蓝色：运行中，黄色：异常 ）</span></div>
-          <div id="list" class="parent h-85 w-100">
-            <div id="child1" class="child comminChild flex flex-wrap j-sb">
-
-                <div class="li_item h-100 p-b" v-for="(item , index) in list" :key="index" >
-                  <img v-if="item.state == true" class="w-30 h-100" style="padding-right:10px;" src="@/assets/img/yunxing.png" alt />
-                  <img v-else class="w-30 h-100" style="padding-right:10px;" src="@/assets/img/weixiu.png" alt />
-                  <div class="w-70  flex flex-column j-sb text-left">
-                    <div >ID： <span>{{item.id}}</span></div>
-                    <div >名称： <span>{{item.name}}</span></div>
-                    <div >位置： <span>{{item.address}}</span></div>
-                  </div>
-                </div>
-
-            </div>
-            <div id="child2" class="child comminChild flex flex-wrap"></div>
-          </div>
+    <div class="h-60 m-l m-r">
+      <div class="hello">
+        <div class="w-100 h-100">
+          <dv-border-box-11
+            title="全国省会飞线图"
+            style="width: 100%; height: 515px"
+            class="box-13"
+          >
+            <dv-flyline-chart-enhanced
+              :config="Flylineconfig"
+              style="width: 100%; height: 100%"
+              class="chinaMap"
+              :dev="true"
+            />
+          </dv-border-box-11>
         </div>
-      </dv-border-box-13>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { points } from "../js/points";
+  import { lines } from "../js/lines";
+
 export default {
   name: "center",
   data() {
     return {
-      list:[
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"湿度传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:false},
-        {id:"011515",name:"压力传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:false},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:false},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:false},
-        {id:"011515",name:"温度传感器",address:"一号楼16层1603",state:true},
-
-      ]
+      // 飞线配置
+      Flylineconfig: {
+        // 飞线点
+        points: points,
+        // 飞线
+        lines: lines,
+        line: {
+          width: 2,
+        },
+        text: {
+          show: false,
+        },
+        bgImgSrc: require("../assets/img/china.png"),
+      },
     };
+
+
+
   },
   mounted() {
     console.log(document.getElementById("list"));
@@ -73,14 +72,15 @@ export default {
   },
   methods: {
     echart() {
-      var echart = this.$echarts.init(document.getElementById("echart"));
-      var option = {
+      const echart = this.$echarts.init(document.getElementById("echart"));
+      const option = {
         color: ["#CA0000"],
         title: {
           text: "最近一周报警",
           left: "20",
           textStyle: {
-            color: "#ffffff"
+            color: "#ffffff",
+            fontSize: 23
           }
         },
         tooltip: {
@@ -204,5 +204,18 @@ export default {
 .li_item {
   width: 33.3%;
   display: flex;
+}
+.box-13 {
+  margin: 0 auto;
+  position: relative;
+  background-color: rgb(0,13,74);
+}
+.chinaMap {
+  position: absolute;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
 </style>

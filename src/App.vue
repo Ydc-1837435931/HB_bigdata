@@ -12,7 +12,8 @@
     </header>
     <div class="p w-100 h-90 flex">
       <div class="w-70 h-100  flex j-sb flex-wrap">
-        <topItem></topItem>
+<!--        //该部分是头部四大框框的-->
+<!--        <topItem></topItem>-->
         <left></left>
         <center></center>
       </div>
@@ -37,7 +38,7 @@ export default {
       this.isload = true;
       const timeout = setTimeout(() => {
         this.isload = false;
-      }, 3000);
+      }, 2000);
     },
   }
 };
@@ -81,8 +82,6 @@ header{
 /* 主题色 */
 .color-blue{color: #1FE9E8;}
 .color-gray{color: #CDEAF6;}
-
-
 
 
 </style>
