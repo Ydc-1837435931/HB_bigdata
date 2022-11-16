@@ -13,7 +13,7 @@
                     <span class="zi">兰州安宁</span>
                   </div>
                   <div class="liIn_line w-20">
-                    <div class="line_lineIn " style="width:90%;"></div>
+                    <div class="line_lineIn " :style="{'background':computedColor(90),'width':'90%'}"></div>
                   </div>
                   <div class="text-right">
                     <p class="num zi">11.18</p>
@@ -26,7 +26,7 @@
                     <span class="zi">安阳文峰</span>
                   </div>
                   <div class="liIn_line w-20">
-                    <div class="line_lineIn" style="width:85%;"></div>
+                    <div class="line_lineIn" :style="{'background':computedColor(85),'width':'85%'}"></div>
                   </div>
                   <div class="text-right">
                     <p class="num zi">11.28</p>
@@ -39,7 +39,7 @@
                     <span class="zi">四平铁西</span>
                   </div>
                   <div class="liIn_line w-20">
-                    <div class="line_lineIn " style="width:70%;"></div>
+                    <div class="line_lineIn " :style="{'background':computedColor(70),'width':'70%'}"></div>
                   </div>
                   <div class="text-right">
                    <p class="num zi">11.26</p>
@@ -52,7 +52,7 @@
                     <span class="zi">运城吾悦</span>
                   </div>
                   <div class="liIn_line w-20">
-                    <div class="line_lineIn " style="width:65%;"></div>
+                    <div class="line_lineIn " :style="{'background':computedColor(65),'width':'65%'}"></div>
                   </div>
                   <div class="text-right">
                     <p class="num zi">12.16</p>
@@ -65,7 +65,7 @@
                     <span class="zi">重庆铜梁</span>
                   </div>
                   <div class="liIn_line w-20">
-                    <div class="line_lineIn " style="width:50%;"></div>
+                    <div class="line_lineIn " :style="{'background':computedColor(50),'width':'50%'}"></div>
                   </div>
                   <div class="text-right">
                     <p class="num zi">12.16</p>
@@ -78,7 +78,7 @@
                     <span class="zi">石家庄长安</span>
                   </div>
                   <div class="liIn_line w-20">
-                    <div class="line_lineIn " style="width:40%;"></div>
+                    <div class="line_lineIn " :style="{'background':computedColor(40),'width':'40%'}"></div>
                   </div>
                   <div class="text-right">
                     <p class="num zi">12.23</p>
@@ -92,7 +92,7 @@
                     <span class="zi">鄂州</span>
                   </div>
                   <div class="liIn_line w-20">
-                    <div class="line_lineIn " style="width:100%;"></div>
+                    <div class="line_lineIn " :style="{'background':computedColor(100),'width':'100%'}"></div>
                   </div>
                   <div class="text-right">
                     <p class="num zi">10.28</p>
@@ -105,7 +105,7 @@
                     <span class="zi">滨州滨城</span>
                   </div>
                   <div class="liIn_line w-20">
-                    <div class="line_lineIn " style="width:100%;"></div>
+                    <div class="line_lineIn " :style="{'background':computedColor(100),'width':'100%'}"></div>
                   </div>
                   <div class="text-right">
                     <p class="num zi">10.22</p>
@@ -118,7 +118,7 @@
                     <span class="zi">大同云冈</span>
                   </div>
                   <div class="liIn_line w-20">
-                    <div class="line_lineIn " style="width:100%;"></div>
+                    <div class="line_lineIn " :style="{'background':computedColor(100),'width':'100%'}"></div>
                   </div>
                   <div class="text-right">
                     <p class="num zi">9.28</p>
@@ -131,7 +131,7 @@
                     <span class="zi">南昌进贤</span>
                   </div>
                   <div class="liIn_line w-20">
-                    <div class="line_lineIn " style="width:100%;"></div>
+                    <div class="line_lineIn " :style="{'background':computedColor(100),'width':'100%'}"></div>
                   </div>
                   <div class="text-right">
                     <p class="num zi">9.23</p>
@@ -156,7 +156,23 @@ export default {
 
   },
   methods: {
-
+    computedColor(rate){
+      let color = ''
+      if(rate > 89 && rate < 100){
+        color = "#7f00ff"
+      }else if(rate > 79 && rate < 90){
+        color = "#b21f1f"
+      }else if(rate > 69 && rate < 80){
+        color = "#fdbb2d"
+      }else if(rate > 59 && rate <70){
+        color = "#2948ff"
+      }else if(rate >0 && rate <60){
+        color = "#36d1dc"
+      }else if(rate === 100){
+        color = "#24fe41"
+      }
+      return color
+    }
   }
 };
 </script>
@@ -222,7 +238,7 @@ export default {
 }
 .biaoge_pai ul li .liIn .liIn_line .line_lineIn {
   height: 0.2rem;
-  background: #91cc75;
+  /*background: #91cc75;*/
   border-radius: 100px;
   -webkit-animation: widthMove1 2s ease-in-out;
 }
