@@ -1,25 +1,130 @@
 <template>
-  <div class="w-65 h-100 flex flex-column">
-    <div class="h-40 m-l m-r">
-      <dv-border-box-13>
-        <div class="w-100 h-100 p-tb" id="echart"></div>
-      </dv-border-box-13>
+  <div class="w-70 h-100 ">
+    <div class="h-60 m-l m-r">
+      <dv-border-box-11 title="商 铺">
+        <div class="h-15 w-95 m-l m-r p-t1 ">
+          <el-tabs v-model="tableTabsValue" class="p-t0">
+            <el-tab-pane
+              :key="item.name"
+              v-for="(item,index) in tableTabs"
+              :label="item.title"
+              :name="item.name"
+            >
+            </el-tab-pane>
+          </el-tabs>
+        </div>
+        <div class="h-85 w-95 m-l m-r p-t">
+          <el-table
+            :data="tableData"
+            class="w-100"
+            :row-style="{height:'52px'}"
+            :cell-style="{padding:'0px'}"
+            style="font-size: 22px;color: #ff0000"
+          >
+            <el-table-column
+              prop="date"
+              label=""
+              align="center"
+              min-width="50"
+              >
+            </el-table-column>
+            <el-table-column
+              prop="name"
+              label="一般商户"
+              align="center"
+              class="w-30">
+              <dv-percent-pond :config="config1" style="width:180px;height:32px;" />
+              {{66}}/{{100}}
+            </el-table-column>
+            <el-table-column
+              prop="address"
+              class="w-30"
+              align="center"
+              label="主题餐饮">
+              <dv-percent-pond :config="config2" style="width:180px;height:32px;" />
+              {{75}}/{{100}}
+            </el-table-column>
+            <el-table-column
+              prop="address"
+              class="w-30"
+              align="center"
+              label="主次力店">
+              <dv-percent-pond :config="config3" style="width:180px;height:32px;" />
+              {{82}}/{{100}}
+            </el-table-column>
+          </el-table>
+          <div class="p-t">
+            <el-row>
+              <el-col :span="2">
+                <spa style="font-size: 22px;color: #ff0000;padding-left: .166667rem;padding-top: .466667rem;">进度:</spa>
+              </el-col>
+              <el-col :span="4">
+                <dv-percent-pond :config="config1" style="width:160px;height:32px;" />
+                <spa style="font-size: 22px;color: #ff0000;text-align:right;padding-left: .566667rem;">{{66}}/{{100}}</spa>
+              </el-col>
+              <el-col :span="4">
+                <spa style="font-size: 22px;color: #ff0000;padding-left: .466667rem;padding-top: .466667rem;">实际施工:</spa>
+              </el-col>
+              <el-col :span="4">
+                <dv-percent-pond :config="config2" style="width:160px;height:32px;" />
+                <spa style="font-size: 22px;color: #ff0000;text-align:right;padding-left: .566667rem;">{{75}}/{{100}}</spa>
+              </el-col>
+              <el-col :span="5">
+                <spa style="font-size: 22px;color: #ff0000;padding-left: .466667rem;padding-top: .466667rem;">房产技术条件:</spa>
+              </el-col>
+              <el-col :span="5">
+                <dv-percent-pond :config="config3" style="width:160px;height:32px;" />
+                <spa style="font-size: 22px;color: #ff0000;text-align:right;padding-left: .566667rem;">{{82}}/{{100}}</spa>
+              </el-col>
+            </el-row>
+          </div>
+        </div>
+      </dv-border-box-11>
     </div>
 
-    <div class="h-60 m-l m-r">
+    <div class="h-30 m-l m-r">
       <div class="hello">
         <div class="w-100 h-100">
           <dv-border-box-11
-            title="全国省会飞线图"
-            style="width: 100%; height: 515px"
+            title="二消验收/开业检"
+            style="width: 100%; height: 350px"
             class="box-13"
           >
-            <dv-flyline-chart-enhanced
-              :config="Flylineconfig"
-              style="width: 100%; height: 100%"
-              class="chinaMap"
-              :dev="true"
-            />
+            <div class="h-25 w-95 m-l m-r p-t1">
+              <el-tabs v-model="tableTabsValue" class="p-t0">
+                <el-tab-pane
+                  :key="item.name"
+                  v-for="(item,index) in tableTabs"
+                  :label="item.title"
+                  :name="item.name"
+                >
+                </el-tab-pane>
+              </el-tabs>
+            </div>
+            <div class="h-70 w-100 m-l m-r p-t">
+              <el-row class="h-10">
+                <el-col :span="24"><div class="grid-content">二消验证:</div></el-col>
+              </el-row>
+              <el-row class="h-30 p-t">
+                <el-col :span="5" ><dv-percent-pond :config="config3" style="width:160px;height:40px;" /></el-col>
+                <el-col :span="2" class="grid-co">{{82}}/{{100}}</el-col>
+                <el-col :span="3"><div class="grid-co">问题数:</div></el-col>
+                <el-col :span="4"><dv-percent-pond :config="config3" style="width:130px;height:40px;" /></el-col>
+                <el-col :span="5"><div class="grid-co">节点时期:{{this.erxiaojiedian}}</div></el-col>
+                <el-col :span="4"><div class="grid-co">逾期:{{1}}天</div></el-col>
+              </el-row>
+              <el-row class="h-10 p-t">
+                <el-col :span="24"><div class="grid-content ">开业检:</div></el-col>
+              </el-row>
+              <el-row class="h-30 p-t">
+                <el-col :span="5" ><dv-percent-pond :config="config3" style="width:160px;height:40px;" /></el-col>
+                <el-col :span="2" class="grid-co">{{82}}/{{100}}</el-col>
+                <el-col :span="3"><div class="grid-co">问题数:</div></el-col>
+                <el-col :span="4"><dv-percent-pond :config="config3" style="width:130px;height:40px;" /></el-col>
+                <el-col :span="5"><div class="grid-co">节点时期:{{this.erxiaojiedian}}</div></el-col>
+                <el-col :span="3"><div class="grid-co">逾期:{{2}}天</div></el-col>
+              </el-row>
+            </div>
           </dv-border-box-11>
         </div>
       </div>
@@ -28,145 +133,60 @@
 </template>
 
 <script>
-  import { points } from "../js/points";
-  import { lines } from "../js/lines";
+
 
 export default {
   name: "center",
   data() {
     return {
-      // 飞线配置
-      Flylineconfig: {
-        // 飞线点
-        points: points,
-        // 飞线
-        lines: lines,
-        line: {
-          width: 2,
-        },
-        text: {
-          show: false,
-        },
-        bgImgSrc: require("../assets/img/china.png"),
+      size:'',
+      tableTabsValue:'4',
+      tableTabs:[{
+        title:'兰州安宁',
+        name:'1',
+        content:'兰州安宁商铺'
+      },{
+        title:'安阳文峰',
+        name:'2',
+        content:'安阳文峰商铺'
+      },{
+        title:'四平铁西',
+        name:'3',
+        content:'四平铁西商铺'
+      },{
+        title:'山西运城',
+        name:'4',
+        content:'山西运城商铺'
+      }],
+      tableData: [{
+        date: '双签',
+      }, {
+        date: '出图',
+      }, {
+        date: '内审',
+      }, {
+        date: '装修完成',
+      }, {
+        date: '自查自验',
+      }],
+      config1:{
+        value: 66,
+        localGradient: true
+      },config2:{
+        value: 75,
+        localGradient: true
+      },config3:{
+        value: 82,
+        localGradient: true
       },
+      erxiaojiedian:"11月1日"
     };
-
-
-
   },
   mounted() {
-    console.log(document.getElementById("list"));
-    this.echart();
-    var parent = document.getElementById("list");
-    var child1 = document.getElementById("child1");
-    var child2 = document.getElementById("child2");
-    child2.innerHTML = child1.innerHTML; // 无缝衔接
 
-    setInterval(function() {
-      if (parent.scrollTop >= child1.scrollHeight) {
-        parent.scrollTop = 0;
-      } else {
-        parent.scrollTop++;
-      }
-    }, 50);
   },
   methods: {
-    echart() {
-      const echart = this.$echarts.init(document.getElementById("echart"));
-      const option = {
-        color: ["#CA0000"],
-        title: {
-          text: "最近一周报警",
-          left: "20",
-          textStyle: {
-            color: "#ffffff",
-            fontSize: 23
-          }
-        },
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            // 坐标轴指示器，坐标轴触发有效
-            type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
-          }
-        },
-        grid: {
-          left: "3%",
-          right: "4%",
-          bottom: "3%",
-          containLabel: true
-        },
-        xAxis: [
-          {
-            type: "category",
-            data: [
-              "2020-12-2",
-              "2020-12-3",
-              "2020-12-4",
-              "2020-12-4",
-              "2020-12-4",
-              "2020-12-4",
-              "2020-12-4"
-            ],
 
-            axisTick: {
-              show: false
-            },
-            axisLine: {
-              show: true,
-              symbol: ["none", "arrow"],
-              symbolOffset: 12,
-              lineStyle: {
-                color: "#fff"
-              }
-            },
-            z: 10
-          }
-        ],
-        yAxis: [
-          {
-            type: "value",
-            name: "报警数",
-            axisLine: {
-              show: true,
-              symbol: ["none", "arrow"],
-              symbolOffset: 12,
-              lineStyle: {
-                color: "#fff"
-              }
-            },
-            axisTick: {
-              show: false
-            },
-            axisLabel: {
-              textStyle: {
-                color: "#fff",
-                fontSize: 12
-              }
-            }
-          }
-        ],
-        series: [
-          {
-            name: "直接访问",
-            type: "bar",
-            barWidth: "60%",
-            label: {
-              show: true,
-              color: "#fff",
-              position: "top"
-            },
-            data: [10, 52, 200, 334, 390, 330, 220]
-          }
-        ]
-      };
-
-      echart.setOption(option);
-      //图标随窗口大小缩放
-      window.addEventListener("resize", function() {
-        echart.resize();
-      });
-    }
   }
 };
 </script>
@@ -217,5 +237,37 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
 
+}
+/*最外层透明*/
+/deep/ .el-table, /deep/ .el-table__expanded-cell{
+  background-color: transparent;
+}
+/* 表格内背景颜色 */
+/deep/ .el-table th,
+/deep/ .el-table tr,
+/deep/ .el-table td {
+  background-color: transparent;
+}
+/* 删除表格下最底层的横线 */
+::v-deep .el-table td,.building-top .el-table th.is-leaf {
+  border-bottom:  1px solid #007ACC;
+}
+/* 表格表头字体颜色 */
+/deep/ .el-table thead {
+  color: #fdbb2d;
+  font-weight: 500;
+  font-size: 18px;
+}
+.grid-content{
+  font-size: 22px;
+  color: white;
+  padding-left: .166667rem;
+
+}
+.grid-co{
+  font-size: 22px;
+  color: white;
+  padding-left: .166667rem;
+  padding-top: .166667rem;
 }
 </style>

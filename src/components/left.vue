@@ -1,5 +1,5 @@
 <template>
-  <div class="w-35 h-100 flex flex-column">
+  <div class="w-30 h-100 flex flex-column">
     <div class="h-100">
       <dv-border-box-13 >
 <!--        项目列表行间距-->

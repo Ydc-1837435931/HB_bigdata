@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>第二季面板</h1>
+      <h1>第3季面板</h1>
     </div>
 </template>
 

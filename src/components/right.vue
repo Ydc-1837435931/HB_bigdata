@@ -1,18 +1,44 @@
 <template>
-  <div class="w-40 h-100 right flex flex-column">
+  <div class="w-28 h-100 right flex flex-column">
     <div class="h-45 m-b">
-      <dv-border-box-13>
-        <div class="item w-100 h-100">
-          <div class="w-100 h-10 font-weight font-s">设备状态信息</div>
-          <div class="w-100 h-90 p-tb" id="echart1"></div>
+      <dv-border-box-11 title="一 消 概 况">
+        <div class="item w-100 h-10  p-t "/>
+        <div class="item w-100 h-90  p-t ">
+          <el-tabs :tab-position="tabPosition" v-model="tableTabsValue" class="h-100 ">
+            <el-tab-pane
+              :key="item.name"
+              v-for="(item,index) in tableTabs"
+              :label="item.title"
+              :name="item.name"
+            >
+              <div style="width: 100%;height: 300px">
+                <el-row>
+                  <el-col :span="8"><div class="grid-content1">节点:</div></el-col>
+                  <el-col :span="8"><div class="grid-content1">实际:</div></el-col>
+                  <el-col :span="8"><div class="grid-content1">复验:</div></el-col>
+                </el-row>
+                <el-row class="p-t">
+                  <el-col :span="8"><div class="grid-content">2022.11.1</div></el-col>
+                  <el-col :span="8"><div class="grid-content">未通过</div></el-col>
+                  <el-col :span="8"><div class="grid-content">2022.11.3</div></el-col>
+                </el-row>
+                <el-row class="p-t">
+                  <el-col :span="24"><div class="grid-content1">问题描述:</div></el-col>
+                </el-row >
+                <el-row class="p-t">
+                  <el-col :span="24"><div class="grid-content">*******</div></el-col>
+                </el-row>
+              </div>
+            </el-tab-pane>
+          </el-tabs>
         </div>
-      </dv-border-box-13>
+      </dv-border-box-11>
     </div>
 
     <div class="h-55">
-      <dv-border-box-13>
+      <dv-border-box-11 title="重 点 事 项"  :color="['#BFD3FF']" style="font-weight: bold!important;font-size: 18px">
         <div class="item w-100 h-100">
-          <div class="w-100 h-15">
+          <div class="w-100 h-15 p-t">
             <el-tabs v-model="activeName" @tab-click="handleClick">
               <el-tab-pane label="兰州安宁" name="first" ></el-tab-pane>
               <el-tab-pane label="安阳文峰" name="second"></el-tab-pane>
@@ -20,7 +46,7 @@
               <el-tab-pane label="运城" name="fourth"></el-tab-pane>
             </el-tabs>
           </div>
-          <dv-scroll-board :config="config" class="w-100 h-70" />
+          <dv-scroll-board :config="config" class="w-100 h-70" @click="tiaoZhuan"/>
           <div class="w-100 h-15">
             <el-tabs v-model="activeName" @tab-click="handleClickquyu">
               <el-tab-pane label="西北区域" name="first"></el-tab-pane>
@@ -31,7 +57,7 @@
             </el-tabs>
           </div>
         </div>
-      </dv-border-box-13>
+      </dv-border-box-11>
     </div>
   </div>
 
@@ -63,164 +89,194 @@ export default {
         ],
         carousel: 'single',
       },
-      activeName: 'second'
+      erxiaojiedian:"11月1日",
+      activeName: 'second',
+      tabPosition: 'left',
+      tableTabsValue:'4',
+      tableTabs:[{
+        title:'兰州安宁',
+        name:'1',
+        content:'兰州安宁商铺'
+      },{
+        title:'安阳文峰',
+        name:'2',
+        content:'安阳文峰商铺'
+      },{
+        title:'四平铁西',
+        name:'3',
+        content:'四平铁西商铺'
+      },{
+        title:'山西运城',
+        name:'4',
+        content:'山西运城商铺'
+      }],
     };
   },
   mounted() {
     var _this = this;
-    this.echart();
+    // this.echart();
   },
   methods: {
-    echart() {
-      var isSet = true; // 为了做判断：当鼠标移动上去的时候，自动高亮就被取消
-      var _this = this;
-      var charPiecurrentIndex = 0;
-      var oldindex=0;
-
-      var chart = this.$echarts.init(document.getElementById("echart1"));
-      var option = {
-        tooltip: {
-          trigger: "item",
-          formatter: "{b} : {c} ({d}%)"
-        },
-        legend: {
-          // orient: 'vertical',
-          // top: 'middle',
-          type: "scroll",
-          orient: "vertical",
-          right: 10,
-          top: 0,
-          bottom: 20,
-          left: "left",
-          textStyle: {
-            color: "#fff",
-            fontSize: 12
-          }
-        },
-        grid: {
-          x: "-10%",
-          y: 40,
-          x2: 20,
-          y2: 20
-        },
-        color: ["#09d0fb", "#91CC75", "#95f8fe", "#f9f390", "#ecfeb7"],
-        series: [
-          {
-            type: "pie",
-            radius: "75%",
-            center: ["50%", "50%"],
-            selectedMode: "single",
-            data: [
-              { value: 1548, name: "运行" },
-              { value: 535, name: "待机" },
-              { value: 510, name: "故障" },
-              { value: 634, name: "维修" },
-              { value: 735, name: "停机" }
-            ],
-            label: {
-              //标识
-              normal: {
-                position: "outside",
-                formatter: "{b}: {d}%",
-                textStyle: {
-                  fontSize: 12
-                }
-              }
-            },
-            emphasis: {
-              itemStyle: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: "rgba(0, 0, 0, 0.5)"
-              }
-            }
-          }
-        ]
-      };
-
-      chart.setOption(option);
-
-      // 鼠标移动上去的时候的高亮动画
-      chart.on("mouseover", function(param) {
-        isSet = false;
-        clearInterval(_this.startCharts);
-        // console.log("charPiecurrentIndex"+charPiecurrentIndex)
-        // console.log("dataIndex"+param.dataIndex)
-
-        //取消之前高亮图形
-        chart.dispatchAction({
-          type: "downplay",
-          seriesIndex: 0,
-          dataIndex: charPiecurrentIndex
-        });
-        charPiecurrentIndex = param.dataIndex
-        //高亮当前图形
-        chart.dispatchAction({
-          type: "highlight",
-          seriesIndex: 0,
-          dataIndex: param.dataIndex
-        });
-        //显示tooltip
-        chart.dispatchAction({
-          type: "showTip",
-          seriesIndex: 0,
-          dataIndex: param.dataIndex
-        });
-      });
-
-      chart.on("mouseout",function(param){
-
+    tiaoZhuan(){
+      this.$router.push('/secondproject')
+      this.$allapi.getinfo().then((res) => {
+          console.log(res.data)
       })
-
-      //图标随窗口大小缩放
-      window.addEventListener("resize", function() {
-        chart.resize();
-      });
-
-
-
-      //自动高亮显示
-      var chartHover = function() {
-    // console.log(charPiecurrentIndex)
-        var dataLen = option.series[0].data.length;
-
-        // 取消之前高亮的图形
-        chart.dispatchAction({
-          type: "downplay",
-          seriesIndex: 0,
-          dataIndex: charPiecurrentIndex
-        });
-        charPiecurrentIndex = (charPiecurrentIndex + 1) % dataLen;
-
-        // 高亮当前图形
-        chart.dispatchAction({
-          type: "highlight",
-          seriesIndex: 0,
-          dataIndex: charPiecurrentIndex
-        });
-        // 显示 tooltip
-        chart.dispatchAction({
-          type: "showTip",
-          seriesIndex: 0,
-          dataIndex: charPiecurrentIndex
-        });
-      };
-
-      _this.startCharts = setInterval(chartHover, 2000);
-      // 4、鼠标移出之后，恢复自动高亮
-      chart.on("mouseout", function(param) {
-        if (!isSet) {
-          _this.startCharts = setInterval(chartHover, 2000);
-          isSet = true;
-        }
-      });
     },
+    // echart() {
+    //   var isSet = true; // 为了做判断：当鼠标移动上去的时候，自动高亮就被取消
+    //   var _this = this;
+    //   var charPiecurrentIndex = 0;
+    //   var oldindex=0;
+    //
+    //   const chart = this.$echarts.init(document.getElementById("echart1"));
+    //   var option = {
+    //     tooltip: {
+    //       trigger: "item",
+    //       formatter: "{b} : {c} ({d}%)"
+    //     },
+    //     legend: {
+    //       // orient: 'vertical',
+    //       // top: 'middle',
+    //       type: "scroll",
+    //       orient: "vertical",
+    //       right: 10,
+    //       top: 0,
+    //       bottom: 20,
+    //       left: "left",
+    //       textStyle: {
+    //         color: "#fff",
+    //         fontSize: 12
+    //       }
+    //     },
+    //     grid: {
+    //       x: "-10%",
+    //       y: 40,
+    //       x2: 20,
+    //       y2: 20
+    //     },
+    //     color: ["#09d0fb", "#91CC75", "#95f8fe", "#f9f390", "#ecfeb7"],
+    //     series: [
+    //       {
+    //         type: "pie",
+    //         radius: "75%",
+    //         center: ["50%", "50%"],
+    //         selectedMode: "single",
+    //         data: [
+    //           { value: 1548, name: "运行" },
+    //           { value: 535, name: "待机" },
+    //           { value: 510, name: "故障" },
+    //           { value: 634, name: "维修" },
+    //           { value: 735, name: "停机" }
+    //         ],
+    //         label: {
+    //           //标识
+    //           normal: {
+    //             position: "outside",
+    //             formatter: "{b}: {d}%",
+    //             textStyle: {
+    //               fontSize: 12
+    //             }
+    //           }
+    //         },
+    //         emphasis: {
+    //           itemStyle: {
+    //             shadowBlur: 10,
+    //             shadowOffsetX: 0,
+    //             shadowColor: "rgba(0, 0, 0, 0.5)"
+    //           }
+    //         }
+    //       }
+    //     ]
+    //   };
+    //
+    //   chart.setOption(option);
+    //
+    //   // 鼠标移动上去的时候的高亮动画
+    //   chart.on("mouseover", function(param) {
+    //     isSet = false;
+    //     clearInterval(_this.startCharts);
+    //     // console.log("charPiecurrentIndex"+charPiecurrentIndex)
+    //     // console.log("dataIndex"+param.dataIndex)
+    //
+    //     //取消之前高亮图形
+    //     chart.dispatchAction({
+    //       type: "downplay",
+    //       seriesIndex: 0,
+    //       dataIndex: charPiecurrentIndex
+    //     });
+    //     charPiecurrentIndex = param.dataIndex
+    //     //高亮当前图形
+    //     chart.dispatchAction({
+    //       type: "highlight",
+    //       seriesIndex: 0,
+    //       dataIndex: param.dataIndex
+    //     });
+    //     //显示tooltip
+    //     chart.dispatchAction({
+    //       type: "showTip",
+    //       seriesIndex: 0,
+    //       dataIndex: param.dataIndex
+    //     });
+    //   });
+    //
+    //   chart.on("mouseout",function(param){
+    //
+    //   })
+    //
+    //   //图标随窗口大小缩放
+    //   window.addEventListener("resize", function() {
+    //     chart.resize();
+    //   });
+    //
+    //
+    //
+    //   //自动高亮显示
+    //   var chartHover = function() {
+    // // console.log(charPiecurrentIndex)
+    //     var dataLen = option.series[0].data.length;
+    //
+    //     // 取消之前高亮的图形
+    //     chart.dispatchAction({
+    //       type: "downplay",
+    //       seriesIndex: 0,
+    //       dataIndex: charPiecurrentIndex
+    //     });
+    //     charPiecurrentIndex = (charPiecurrentIndex + 1) % dataLen;
+    //
+    //     // 高亮当前图形
+    //     chart.dispatchAction({
+    //       type: "highlight",
+    //       seriesIndex: 0,
+    //       dataIndex: charPiecurrentIndex
+    //     });
+    //     // 显示 tooltip
+    //     chart.dispatchAction({
+    //       type: "showTip",
+    //       seriesIndex: 0,
+    //       dataIndex: charPiecurrentIndex
+    //     });
+    //   };
+    //
+    //   _this.startCharts = setInterval(chartHover, 2000);
+    //   // 4、鼠标移出之后，恢复自动高亮
+    //   chart.on("mouseout", function(param) {
+    //     if (!isSet) {
+    //       _this.startCharts = setInterval(chartHover, 2000);
+    //       isSet = true;
+    //     }
+    //   });
+    // },
     handleClick(name) {
       console.log(name +"!!!!!");
-      this.$router.push('/project')
+      let router = this.$router.push('/project');
     },
     handleClickquyu(){
-      console.log("点击事件发生")
+      // let router = this.$router.push('/project', (xhr) => {
+      //   console.log(router);
+      // });
+      window.location.href = '/#/project'
+      // console.log(router);
     }
   }
 };
@@ -233,12 +289,24 @@ export default {
 .el-tabs__item{
   font-size: 20px !important;
   color: #46b8da;
-  /*margin-left: -14px;*/
   border-color: #1a5773;
 }
 .el-tabs__item:hover{
-  font-size: 25px !important;
+  font-size: 24px !important;
   color: #f0ad4e;
-  /*margin-left: -10px;*/
+}
+.border11 text.dv-border-box-11-title[fill] {
+  fill: #02d9fd;
+  font-weight: bold!important;
+}
+.grid-content{
+  font-size: 20px;
+  color: white;
+  padding-left: .166667rem;
+}
+.grid-content1{
+  font-size: 18px;
+  color: #f0ad4e;
+  padding-left: .166667rem;
 }
 </style>

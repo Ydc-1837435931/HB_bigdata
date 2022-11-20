@@ -1,25 +1,5 @@
 <template>
-
-  <div id="app" class="flex h-100 flex-wrap">
-    <!-- 加载动画 -->
-    <div class="loads" v-show="isload">
-      <dv-loading style="width: 250px; height: 250px">Loading...</dv-loading>
-    </div>
-
-    <header class="w-100 h-10 flex j-center a-center">
-      <dv-decoration-5 :dur="10" style="position: absolute;bottom: 0;right: 0;height: 50%;" class="w-100 " />
-      <div class="font-big font-weight">筹备期消防管理平台</div>
-    </header>
-    <div class="p w-100 h-90 flex">
-      <div class="w-70 h-100  flex j-sb flex-wrap">
-<!--        //该部分是头部四大框框的-->
-<!--        <topItem></topItem>-->
-        <left></left>
-        <center></center>
-      </div>
-      <right></right>
-    </div>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>

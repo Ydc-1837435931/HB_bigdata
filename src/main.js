@@ -5,8 +5,11 @@ import App from "./App"
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from './router'
-
+import VueRouter from 'vue-router'
 import dataV from '@jiaminghi/data-view'
+import axios from "axios";
+import VueAxios from "vue-axios";
+import allapi from "./utils/api.js"
 
 Vue.config.productionTip = false
 
@@ -51,6 +54,12 @@ Vue.component('right', right)
 Vue.use(ElementUI);
 
 Vue.use(dataV)
+
+Vue.use(VueRouter)
+
+Vue.use(VueAxios,axios)
+
+Vue.prototype.$allapi = allapi
 
 Vue.config.productionTip = false
 
