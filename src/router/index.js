@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import project from '../views/project.vue'
+import project from '../views/thirdProject.vue'
 
 Vue.use(VueRouter)
 
@@ -10,16 +10,16 @@ const routes = [
     component: () => import('../views/Home.vue')
   },
     {
-      path: '/project',
-      name: 'project',
+      path: '/thirdProject',
+      name: 'thirdProject',
       meta:{title:"项目页面"},
-      component: () => import('../views/project.vue')
+      component: () => import('../views/thirdProject.vue')
     },
     {
-      path:'/secondproject',
-      name:'secondproject',
+      path:'/secondProject',
+      name:'secondProject',
       meta:{title:"第二级看板"},
-      component: () => import('../views/secondproject.vue')
+      component: () => import('../views/secondProject.vue')
     }
   ]
 

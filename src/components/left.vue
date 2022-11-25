@@ -15,7 +15,7 @@
                   <div class="liIn_line w-20">
                     <div class="line_lineIn " :style="{'background':computedColor(90),'width':'90%'}"></div>
                   </div>
-                  <div class="text-right">
+                  <div class="text-right w-30 ">
                     <p class="num zi">11.18</p>
                   </div>
                 </div>
@@ -28,7 +28,7 @@
                   <div class="liIn_line w-20">
                     <div class="line_lineIn" :style="{'background':computedColor(85),'width':'85%'}"></div>
                   </div>
-                  <div class="text-right">
+                  <div class="text-right w-30">
                     <p class="num zi">11.28</p>
                   </div>
                 </div>
@@ -41,7 +41,7 @@
                   <div class="liIn_line w-20">
                     <div class="line_lineIn " :style="{'background':computedColor(70),'width':'70%'}"></div>
                   </div>
-                  <div class="text-right">
+                  <div class="text-right w-30">
                    <p class="num zi">11.26</p>
                   </div>
                 </div>
@@ -54,7 +54,7 @@
                   <div class="liIn_line w-20">
                     <div class="line_lineIn " :style="{'background':computedColor(65),'width':'65%'}"></div>
                   </div>
-                  <div class="text-right">
+                  <div class="text-right w-30">
                     <p class="num zi">12.16</p>
                   </div>
                 </div>
@@ -67,7 +67,7 @@
                   <div class="liIn_line w-20">
                     <div class="line_lineIn " :style="{'background':computedColor(50),'width':'50%'}"></div>
                   </div>
-                  <div class="text-right">
+                  <div class="text-right w-30">
                     <p class="num zi">12.16</p>
                   </div>
                 </div>
@@ -80,7 +80,7 @@
                   <div class="liIn_line w-20">
                     <div class="line_lineIn " :style="{'background':computedColor(40),'width':'40%'}"></div>
                   </div>
-                  <div class="text-right">
+                  <div class="text-right w-30">
                     <p class="num zi">12.23</p>
                   </div>
                 </div>
@@ -89,12 +89,12 @@
               <li>
                 <div class="liIn">
                   <div class="liIn_left w-50">
-                    <span class="zi">鄂州</span>
+                    <span class="zi">鄂州吾悦</span>
                   </div>
                   <div class="liIn_line w-20">
                     <div class="line_lineIn " :style="{'background':computedColor(100),'width':'100%'}"></div>
                   </div>
-                  <div class="text-right">
+                  <div class="text-right w-30">
                     <p class="num zi">10.28</p>
                   </div>
                 </div>
@@ -107,7 +107,7 @@
                   <div class="liIn_line w-20">
                     <div class="line_lineIn " :style="{'background':computedColor(100),'width':'100%'}"></div>
                   </div>
-                  <div class="text-right">
+                  <div class="text-right w-30">
                     <p class="num zi">10.22</p>
                   </div>
                 </div>
@@ -120,7 +120,7 @@
                   <div class="liIn_line w-20">
                     <div class="line_lineIn " :style="{'background':computedColor(100),'width':'100%'}"></div>
                   </div>
-                  <div class="text-right">
+                  <div class="text-right w-30">
                     <p class="num zi">9.28</p>
                   </div>
                 </div>
@@ -133,7 +133,7 @@
                   <div class="liIn_line w-20">
                     <div class="line_lineIn " :style="{'background':computedColor(100),'width':'100%'}"></div>
                   </div>
-                  <div class="text-right">
+                  <div class="text-right w-30">
                     <p class="num zi">9.23</p>
                   </div>
                 </div>
@@ -201,7 +201,6 @@ export default {
 }
 .biaoge_pai ul li .liIn .liIn_left {
   position: relative;
-  padding-left: 0.3rem;
 }
 .biaoge_pai ul li .liIn .liIn_left .bot {
   width: 0.2rem;
